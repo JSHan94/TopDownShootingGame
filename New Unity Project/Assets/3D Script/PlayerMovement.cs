@@ -3,6 +3,7 @@ using RonnieJ.ObjectPool;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    // X,Z position
     public float x;
     public float z;
     public float rotation_angle;
@@ -18,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(x, 0,z), step); // 이동
-        transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0,rotation_angle, 0), Time.deltaTime*10); // 회전
+        float currentX = transform.position.x;
+        float currentZ = transform.position.z;
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentX+ x, 0, currentZ+ z), step); // 이동
+        //transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0,rotation_angle, 0), Time.deltaTime*10); // 회전
         Animating(x, z);
         if(isDead == 1)
         {
@@ -43,6 +46,5 @@ public class PlayerMovement : MonoBehaviour
         bullet.transform.position = transform.position + transform.forward;
         bullet.transform.rotation = transform.rotation;
         bullet.SetActive(true);
-
     }
 }

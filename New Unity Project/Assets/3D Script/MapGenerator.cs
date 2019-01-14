@@ -68,6 +68,7 @@ public class MapGenerator : MonoBehaviour
 
         bool[,] obstacleMap = new bool[(int)mapSize.x, (int)mapSize.y];
 
+        //obstacle random 생성
         int obstacleCount = (int) (mapSize.x * mapSize.y * obstaclePercent);
         for (int i = 0; i < obstacleCount; i++)
         {
