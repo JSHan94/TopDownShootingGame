@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;       //Public variable to store a reference to the player game object
-
+    public GameObject player;
 
     private Vector3 offset;         //Private variable to store the offset distance between the player and camera
 
@@ -13,13 +12,24 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = transform.position - player.transform.position;
+        //offset = transform.position - player.transform.position;
+        offset = Vector3.up * 10;
+        transform.position = player.transform.position + offset;
     }
 
     // LateUpdate is called after Update each frame
     void LateUpdate()
     {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            Debug.Log("1 selected!!");
+            player = GameObject.Find("Custom Player (1)");    
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            Debug.Log("2 selected!!");
+            player = GameObject.Find("Custom Player (2)");
+        }
         transform.position = player.transform.position + offset;
     }
 }

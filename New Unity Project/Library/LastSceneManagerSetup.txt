@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/MapGenerator.unity
+- path: Assets/Scene/character_test.unity
   isLoaded: 1
   isActive: 1

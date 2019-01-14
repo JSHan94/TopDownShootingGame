@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using RonnieJ.ObjectPool;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
@@ -26,11 +26,23 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("Die");
             Destroy(gameObject,2);
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
 
     void Animating(float x, float z)
     {
         bool walking = x != 0f || z != 0f; //walking? trigger 받기
         anim.SetBool("IsWalking", walking);
+    }
+    void Shoot()
+    {
+        GameObject bullet = ObjectPool.Instance.PopFromPool("Bullet");
+        bullet.transform.position = transform.position + transform.forward;
+        bullet.transform.rotation = transform.rotation;
+        bullet.SetActive(true);
+
     }
 }

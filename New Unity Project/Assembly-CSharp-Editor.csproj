@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\FiledOfViewEditor.cs" />
     <Compile Include="Assets\Editor\MapEditor.cs" />
-    <Compile Include="Assets\extra\_Complete-Game\MobileInput\Scripts\Editor\CrossPlatformInputInitialize.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/saw1515/Documents/TopDownShootingGame/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
